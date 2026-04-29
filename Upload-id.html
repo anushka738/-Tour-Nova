@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your ID – Tour Nova</title>
+    <link rel="stylesheet" href="upload-id.css">
+</head>
+
+<body>
+
+    <div class="upload-container">
+
+        <h2 class="title">Upload Your ID</h2>
+        <p class="subtitle">Provide your details and upload a clear photo of your valid ID.</p>
+
+        <!-- FORM START -->
+        <form class="id-form">
+
+            <!-- FULL NAME -->
+            <label class="label">Full Name *</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <!-- AADHAAR / PASSPORT -->
+            <label class="label">Aadhaar / Passport Number *</label>
+            <input type="text" placeholder="Enter ID number" required>
+
+            <!-- TRIP DETAILS -->
+            <label class="label">Trip Details *</label>
+            <textarea placeholder="Where are you travelling? Duration? Purpose?" rows="3" required></textarea>
+
+            <!-- EMERGENCY CONTACT -->
+            <label class="label">Emergency Contact *</label>
+            <input type="text" placeholder="Contact person name" required>
+
+            <input type="tel" placeholder="Contact number" required>
+
+            <!-- ID UPLOAD -->
+            <label class="label">Upload Your ID Photo *</label>
+
+            <div class="upload-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" class="upload-icon">
+                <p>Click to upload your ID</p>
+                <input type="file" accept="image/*" id="idUpload" required onchange="previewImage(event)">
+            </div>
+
+            <!-- IMAGE PREVIEW -->
+            <img id="preview" class="preview-image" style="display:none;">
+            
+            <button type="submit" class="continue-btn">Continue</button>
+
+        </form>
+        <!-- FORM END -->
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById("preview");
+            preview.src = URL.createObjectURL(event.target.files[0]);
+            preview.style.display = "block";
+        }
+    </script>
+<script>
+    function previewImage(event) {
+        const preview = document.getElementById("preview");
+        preview.src = URL.createObjectURL(event.target.files[0]);
+        preview.style.display = "block";
+    }
+</script>
+
+<!-- SUCCESS MESSAGE SCRIPT -->
+<script>
+document.querySelector(".id-form").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    alert("Data Stored Successfully!");
+});
+</script>
+
+</body>
+</html>
+<script>
+document.querySelector(".id-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop page refresh
+
+    alert("Data Stored Successfully!");
+});
+</script>
